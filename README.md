@@ -80,9 +80,13 @@ BOT_TOKEN = Discord BOT Token Here
 
 ### 4. Run the bot
 
+**Development mode** (with hot reload):
+
 ```bash
 npm run dev
 ```
+
+> This command runs the bot in development mode with automatic reload on file changes using `tsx watch`.
 
 ## 📁 Project Structure
 
