@@ -31,7 +31,7 @@ export class BotClient extends Client {
 			await Commands (this);
 
 			await this.login (token);
-			Terminal.log ('BOT is running successfully!', Color.Green);
+			Terminal.log ('BOT is running successfully!', Color.Green, true);
 		} catch (error: Error | unknown) {
 			Terminal.log (`Failed to start the bot: ${ error instanceof Error ? error.message : String (error) }`, Color.Red);
 		}

@@ -16,8 +16,8 @@ export class Terminal {
 		return new Date ().toLocaleTimeString ('pt-BR');
 	}
 
-	static log (text: string, color: Color): any {
-		return console.log (`${ this.timestamp () } ${ this.color (text, color) }`);
+	static log (text: string, color: Color, bold?: boolean): any {
+		return console.log (`${ this.timestamp () } ${ bold ? '\x1b[1m' : '' }${ this.color (text, color) }${ bold ? '\x1b[22m' : '' }`);
 	}
 };
 

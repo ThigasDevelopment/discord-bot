@@ -13,11 +13,11 @@ async function Deploy (clientId: string, guildId: string) {
 	console.clear ();
 
 	if (!clientId) {
-		return Terminal.log ('Client ID is required.', Color.Red);
+		return Terminal.log ('Client ID is required.', Color.Red, true);
 	}
 
 	if (!guildId) {
-		return Terminal.log ('Guild ID is required.', Color.Red);
+		return Terminal.log ('Guild ID is required.', Color.Red, true);
 	}
 
 	const files = await fg ('src/modules/discord/commands/**/*.ts');
@@ -30,17 +30,17 @@ async function Deploy (clientId: string, guildId: string) {
 	const rest = new REST ({ version: '10' }).setToken (process.env.BOT_TOKEN);
 
 	try {
-		Terminal.log (`Started refreshing application (/) commands.`, Color.Blue);
+		Terminal.log (`Started refreshing application (/) commands.`, Color.Blue, true);
 
-		Terminal.log ('Removing existing commands...', Color.Yellow);
+		Terminal.log ('Removing existing commands...', Color.Yellow, true);
 		await rest.put (Routes.applicationGuildCommands (clientId, guildId), { body: [ ] });
 
-		Terminal.log ('Registering new commands...', Color.Blue);
+		Terminal.log ('Registering new commands...', Color.Blue, true);
 		await rest.put (Routes.applicationGuildCommands (clientId, guildId), { body: commands });
 
-		Terminal.log (`Successfully reloaded ${ commands.length } application (/) commands.`, Color.Green);
+		Terminal.log (`Successfully reloaded ${ commands.length } application (/) commands.`, Color.Green, true);
 	} catch (error: Error | unknown) {
-		Terminal.log (`Error while refreshing commands: ${ (error as Error).message }`, Color.Red);
+		Terminal.log (`Error while refreshing commands: ${ (error as Error).message }`, Color.Red, true);
 	}
 }
 

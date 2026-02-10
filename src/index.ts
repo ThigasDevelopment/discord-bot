@@ -8,7 +8,7 @@ import Terminal, { Color } from '@utils/Terminal';
 async function run () {
 	const client = new BotClient ();
 	if (!client) {
-		return Terminal.log ('Failed to initialize the bot client.', Color.Red);
+		return Terminal.log ('Failed to initialize the bot client.', Color.Red, true);
 	}
 
 	try {
@@ -24,7 +24,7 @@ async function run () {
 
 		await client.start (process.env.BOT_TOKEN);
 	} catch (error: Error | unknown) {
-		Terminal.log (`Error during bot initialization: ${ error instanceof Error ? error.message : String (error) }`, Color.Red);
+		Terminal.log (`Error during bot initialization: ${ error instanceof Error ? error.message : String (error) }`, Color.Red, true);
 	}
 }
 
