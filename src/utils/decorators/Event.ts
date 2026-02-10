@@ -1,11 +1,15 @@
 import { Events } from 'discord.js';
 
-interface EventData {
+export interface EventData {
 	name: Events | string;
-	type: 'on' | 'once';
+	once: boolean;
 };
 
-export const GlobalEvents: any[ ] = [ ];
+export interface RegisteredEvent extends EventData {
+	execute: (...args: any[]) => any;
+};
+
+export const GlobalEvents: RegisteredEvent[] = [];
 
 export function Event (event: EventData) {
 	return function <T extends { new (...args: any[ ]): { } }> (constructor: T) {
@@ -13,8 +17,9 @@ export function Event (event: EventData) {
 
 		GlobalEvents.push ({
 			name: event.name,
-			type: event.type,
-			execute: instance,
+			once: event.once,
+
+			execute: (...args: any[]) => (instance as any).execute(...args),
 		});
 
 		return constructor;

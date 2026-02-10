@@ -1,6 +1,8 @@
-import { Client, GatewayIntentBits, Partials } from 'discord.js';
-
 import Terminal, { Color } from '@utils/Terminal';
+
+import Events from '@modules/handler/Events';
+
+import { Client, GatewayIntentBits, Partials } from 'discord.js';
 
 export class BotClient extends Client {
 	constructor () {
@@ -22,6 +24,8 @@ export class BotClient extends Client {
 
 	async start (token: string) {
 		try {
+			await Events (this);
+
 			await this.login (token);
 			Terminal.log ('BOT is running successfully!', Color.Green);
 		} catch (error: Error | unknown) {
