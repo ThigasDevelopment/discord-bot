@@ -18,9 +18,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-	  "@utils/*": ["src/utils/*"],
-	  "@modules/*": ["src/modules/*"],
-	  "@decorators/*": ["src/utils/decorators/*"],
+      "@utils/*": ["src/utils/*"],
+      "@types/*": ["src/utils/types/*"],
+      "@modules/*": ["src/modules/*"],
+      "@decorators/*": ["src/utils/decorators/*"],
     }
   },
 

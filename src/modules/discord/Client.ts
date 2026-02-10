@@ -3,10 +3,12 @@ import Terminal, { Color } from '@utils/Terminal';
 import Events from '@modules/handler/Events';
 import Commands from '@modules/handler/Commands';
 
+import { RegisteredCommand } from '@/utils/decorators/Command';
+
 import { Client, GatewayIntentBits, Partials, Collection } from 'discord.js';
 
 export class BotClient extends Client {
-	commands = new Collection ();
+	commands = new Collection () as Collection<string, RegisteredCommand>;
 
 	constructor () {
 		super ({
