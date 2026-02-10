@@ -14,8 +14,8 @@ async function run () {
 	try {
 		console.clear ();
 
-		const inDevMode = !(process.env.npm_lifecycle_event === 'dev');
-		if (inDevMode) {
+		const inDevMode = (process.env.npm_lifecycle_event === 'dev');
+		if (!inDevMode) {
 			process.on ('multipleResolves', () => { });
             process.on ('uncaughtException', () => { });
             process.on ('unhandledRejection', () => { });
