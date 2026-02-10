@@ -1,0 +1,23 @@
+{
+  "name": "infinity-bot",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ThigasDevelopment/discord-bot#readme",
+  "bugs": {
+    "url": "https://github.com/ThigasDevelopment/discord-bot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThigasDevelopment/discord-bot.git"
+  },
+  "license": "ISC",
+  "author": "dracoN*",
+  "type": "commonjs",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.21.0"
+  }
+}
