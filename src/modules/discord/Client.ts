@@ -1,10 +1,13 @@
 import Terminal, { Color } from '@utils/Terminal';
 
 import Events from '@modules/handler/Events';
+import Commands from '@modules/handler/Commands';
 
-import { Client, GatewayIntentBits, Partials } from 'discord.js';
+import { Client, GatewayIntentBits, Partials, Collection } from 'discord.js';
 
 export class BotClient extends Client {
+	commands = new Collection ();
+
 	constructor () {
 		super ({
 			intents: [
@@ -25,6 +28,7 @@ export class BotClient extends Client {
 	async start (token: string) {
 		try {
 			await Events (this);
+			await Commands (this);
 
 			await this.login (token);
 			Terminal.log ('BOT is running successfully!', Color.Green);

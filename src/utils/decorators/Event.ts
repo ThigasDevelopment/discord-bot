@@ -19,7 +19,7 @@ export function Event (event: EventData) {
 			name: event.name,
 			once: event.once,
 
-			execute: (...args: any[]) => (instance as any).execute(...args),
+			execute: (...args: any[]) => (instance as any).execute (...args),
 		});
 
 		return constructor;
