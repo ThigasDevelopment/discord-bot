@@ -12,10 +12,7 @@ async function run () {
 	}
 
 	try {
-		console.clear ();
-
-		await client.login (process.env.BOT_TOKEN);
-		Terminal.log ('BOT is running successfully!', Color.Green);
+		await client.start (process.env.BOT_TOKEN);
 	} catch (error: Error | unknown) {
 		Terminal.log (`Error during bot initialization: ${ error instanceof Error ? error.message : String (error) }`, Color.Red);
 	}

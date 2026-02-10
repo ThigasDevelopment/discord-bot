@@ -1,5 +1,7 @@
 import { Client, GatewayIntentBits, Partials } from 'discord.js';
 
+import Terminal, { Color } from '@utils/Terminal';
+
 export class BotClient extends Client {
 	constructor () {
 		super ({
@@ -16,5 +18,16 @@ export class BotClient extends Client {
 				Partials.GuildMember,
 			],
 		});
+	}
+
+	async start (token: string) {
+		console.clear ();
+
+		try {
+			await this.login (token);
+			Terminal.log ('BOT is running successfully!', Color.Green);
+		} catch (error: Error | unknown) {
+			Terminal.log (`Failed to start the bot: ${ error instanceof Error ? error.message : String (error) }`, Color.Red);
+		}
 	}
 }
