@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from 'discord.js';
 
 import { Command } from '@decorators/Command';
+import { BotInteraction } from '@/utils/types/controller';
 
 @Command ({
 	data: new SlashCommandBuilder ()
@@ -8,7 +9,7 @@ import { Command } from '@decorators/Command';
 		.setDescription ('Created an example command!')
 })
 export class Example {
-	run () {
-		return 'Pong!';
+	async run (interaction: BotInteraction) {
+		await interaction.editReply ({ content: 'This is an example command!' });
 	}
 }
