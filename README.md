@@ -78,7 +78,17 @@ Edit the `.env` file:
 BOT_TOKEN = Discord BOT Token Here
 ```
 
-### 4. Run the bot
+### 4. Deploy commands to Discord
+
+Before running the bot, register your slash commands:
+
+```bash
+npm run build <CLIENT_ID> <GUILD_ID>
+```
+
+Replace `<CLIENT_ID>` with your bot's Client ID and `<GUILD_ID>` with your server ID.
+
+### 5. Run the bot
 
 **Development mode** (with hot reload):
 
@@ -282,12 +292,29 @@ import { Command } from '@decorators/Command';
 # Development with hot reload
 npm run dev
 
-# Build (if configured)
-npm run build
-
-# Production start (if configured)
-npm start
+# Deploy commands to Discord (required before using bot)
+npm run build <CLIENT_ID> <GUILD_ID>
+# Example: npm run build 1470648697514758339 1118320247234109520
 ```
+
+### 📤 Deploying Commands
+
+Before using your bot's slash commands, you need to register them with Discord:
+
+1. Get your bot's **Client ID** from [Discord Developer Portal](https://discord.com/developers/applications)
+2. Get your **Guild ID** (Server ID) by enabling Developer Mode in Discord and right-clicking your server
+3. Run the deploy command:
+
+```bash
+npm run build <CLIENT_ID> <GUILD_ID>
+```
+
+This will:
+- ✅ Remove all existing commands from the specified server
+- ✅ Register all new commands decorated with `@Command`
+- ✅ Update commands instantly (guild commands are immediate)
+
+> **Note:** This registers commands to a specific server. Commands appear instantly on that server.
 
 ## 🌟 Implemented Features
 

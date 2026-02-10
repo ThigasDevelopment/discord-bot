@@ -15,7 +15,8 @@
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "build": "tsx src/modules/handler/Deploy.ts"
   },
   "dependencies": {
     "ansi-colors": "^4.1.3",
