@@ -115,6 +115,7 @@ infinity-bot/
 │   │   │       └── Ready.ts
 │   │   └── handler/
 │   │       ├── Commands.ts               # Commands auto-loader
+│   │       ├── Deploy.ts                 # Commands deployment to Discord
 │   │       └── Events.ts                 # Events auto-loader
 │   └── utils/
 │       ├── Terminal.ts                   # Colorful logging system
@@ -138,20 +139,19 @@ infinity-bot/
 ### Creating a Command
 
 ```typescript
-// src/modules/discord/commands/ping.ts
+// src/modules/discord/commands/Example.ts
 
-import { SlashCommandBuilder, ChatInputCommandInteraction } from 'discord.js';
+import { SlashCommandBuilder } from 'discord.js';
 import { Command } from '@decorators/Command';
 
 @Command({
   data: new SlashCommandBuilder()
-    .setName('ping')
-    .setDescription('Check bot latency')
+    .setName('example')
+    .setDescription('Created an example command!')
 })
-export class PingCommand {
-  async run(interaction: ChatInputCommandInteraction) {
-    const ping = interaction.client.ws.ping;
-    await interaction.reply(`🏓 Pong! Latency: **${ping}ms**`);
+export class Example {
+  run() {
+    return 'Pong!';
   }
 }
 ```
