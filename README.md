@@ -75,10 +75,7 @@ Edit the `.env` file:
 
 ```env
 # Discord BOT
-BOT_TOKEN=your_token_here
-CLIENT_ID=client_id
-GUILD_ID=test_server_id (optional)
-NODE_ENV=development
+BOT_TOKEN = Discord BOT Token Here
 ```
 
 ### 4. Run the bot
