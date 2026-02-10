@@ -2,7 +2,8 @@ declare global {
 	namespace NodeJS {
 		interface ProcessEnv {
 			BOT_TOKEN: string;
-			NODE_ENV?: 'development' | 'production';
+			
+			npm_lifecycle_event: string;
 		}
 	}
 }

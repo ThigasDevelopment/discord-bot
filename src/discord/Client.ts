@@ -21,8 +21,6 @@ export class BotClient extends Client {
 	}
 
 	async start (token: string) {
-		console.clear ();
-
 		try {
 			await this.login (token);
 			Terminal.log ('BOT is running successfully!', Color.Green);
