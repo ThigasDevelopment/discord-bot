@@ -1,4 +1,4 @@
-import { BotClient } from '@/discord/Client';
+import { BotClient } from '@modules/discord/Client';
 
 import dotenv from 'dotenv';
 dotenv.config ();
