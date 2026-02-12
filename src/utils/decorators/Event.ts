@@ -13,13 +13,13 @@ export const GlobalEvents: RegisteredEvent[] = [];
 
 export function Event (event: EventData) {
 	return function <T extends { new (...args: any[ ]): { } }> (constructor: T) {
-		const instance = new constructor ();
+		const instance = new constructor () as any;
 
 		GlobalEvents.push ({
 			name: event.name,
 			once: event.once,
 
-			execute: (...args: any[]) => (instance as any).execute (...args),
+			execute: (...args: any[]) => instance.execute (...args),
 		});
 
 		return constructor;
